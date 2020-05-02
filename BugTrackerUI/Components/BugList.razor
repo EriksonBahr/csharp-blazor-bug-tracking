@@ -2,20 +2,26 @@
 
 <table>
 
-    <tr>
-        <td>Id</td>
-        <td>Title</td>
-        <td>Description</td>
-        <td>Priority</td>
-    </tr>
-    @foreach (var bug in Bugs)
+    @if (Bugs.Count > 0)
     {
         <tr>
-            <td>@bug.Id</td>
-            <td>@bug.Title</td>
-            <td>@bug.Description</td>
-            <td>@bug.Priority</td>
+            <td>Id</td>
+            <td>Title</td>
+            <td>Description</td>
+            <td>Priority</td>
         </tr>
+        @foreach (var bug in Bugs)
+        {
+            <tr>
+                <td>@bug.Id</td>
+                <td>@bug.Title</td>
+                <td>@bug.Description</td>
+                <td>@bug.Priority</td>
+            </tr>
+        }
+    }
+    else { 
+        <div class="alert alert-info">No bug was found! No bug was found! <a href="/new-bug"> Why don't you add a new one?</a></div>
     }
 
 </table>

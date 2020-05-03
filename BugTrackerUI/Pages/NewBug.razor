@@ -3,13 +3,21 @@
 <h3>Add New Bug</h3>
 
 <EditForm Model="AddBug" OnValidSubmit="HandleValidSubmit">
-    <InputText @bind-Value="@AddBug.Title" placeholder="Enter Title"></InputText>
-    <InputText @bind-Value="@AddBug.Description" placeholder="Enter Description"></InputText>
-    <InputNumber @bind-Value="@AddBug.Priority" placeholder="Enter Priority"></InputNumber>
+    <div class="form-group">
+        <InputText @bind-Value="@AddBug.Title" placeholder="Enter Title"></InputText>
+        <ValidationMessage For="() => AddBug.Title"></ValidationMessage>
+    </div>
+    <div class="form-group">
+        <InputText @bind-Value="@AddBug.Description" placeholder="Enter Description"></InputText>
+        <ValidationMessage For="() => AddBug.Description"></ValidationMessage>
+    </div>
+    <div class="form-group">    
+        <InputNumber @bind-Value="@AddBug.Priority" placeholder="Enter Priority"></InputNumber>
+        <ValidationMessage For="() => AddBug.Priority"></ValidationMessage>
+    </div>
     <button type="submit">Add Bug</button>
 
     <DataAnnotationsValidator></DataAnnotationsValidator>
-    <ValidationSummary></ValidationSummary>
 </EditForm>
 
 @code {
